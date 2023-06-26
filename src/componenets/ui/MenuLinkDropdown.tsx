@@ -53,7 +53,7 @@ export const MenuLinkDropdown: FC<MenuLinkDropdownProps> = ({
         </svg>
 
         {isHovered && (
-          <div className="absolute start-full ms-6 rounded bg-white px-2 py-1.5 text-sm font-medium text-black">
+          <div className="absolute start-full ms-6 sm:w-64 rounded bg-white px-2 py-1.5 text-sm font-medium text-black">
             <ul className="flex flex-col space-y-2">
               <li>
                 <span className="block border-b pb-1 font-bold text-black">

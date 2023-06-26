@@ -44,12 +44,12 @@ const MenuListDropdown: FC<MenuListDropdownProps> = ({
           </span>
         </summary>
 
-        <ul className="mt-2 space-y-1 px-4">
+        <ul className="mt-2 rounded-lg bg-blue-50 space-y-1 px-4">
           {links.map((link) => (
             <li key={link.url}>
               <Link
                 href={link.url}
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  hover:text-gray-800"
               >
                 {link.title}
               </Link>
@@ -59,7 +59,7 @@ const MenuListDropdown: FC<MenuListDropdownProps> = ({
           <li>
             <a
               href=""
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  hover:text-gray-800"
             >
               Calendar
             </a>

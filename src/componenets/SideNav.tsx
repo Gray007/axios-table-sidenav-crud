@@ -1,11 +1,11 @@
 import Link from "next/link";
-import React, { FC, useState } from "react";
+import React, { type FC, useState } from "react";
 import MenuLinkDropdown from "./ui/MenuLinkDropdown";
 import MenuListDropdown from "./ui/MenuListDropdown";
 
-interface SideNavProps {}
 
-const SideNav: FC<SideNavProps> = ({}) => {
+
+const SideNav: FC = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSettings, setOpenSettings] = useState(false);
 
@@ -138,19 +138,45 @@ const SideNav: FC<SideNavProps> = ({}) => {
   return (
     <>
       {isOpen ? (
-        <div className="flex h-screen flex-col justify-between border-e bg-white">
+        <div className="flex h-screen flex-col justify-between border-e bg-white sm:w-64">
           <div className="px-4 py-6">
-            <span className="grid h-10 w-full place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7"
-                viewBox="0 0 70 70"
-                fill="black"
-              >
-                <path d="M26 4.5c0 1-1 1.5-3 1.5s-3 .5-3 1.5S19 9 17 9s-3 .5-3 1.5c0 .8-.7 1.5-1.5 1.5s-1.5.7-1.5 1.5-.7 1.5-1.5 1.5c-1 0-1.5 1-1.5 3s-.5 3-1.5 3S5 22 5 24s-.5 3-1.5 3C2.3 27 2 28.5 2 34.5S2.3 42 3.5 42C4.6 42 5 43.2 5 46.5S5.4 51 6.5 51c1 0 1.5 1 1.5 3s.5 3 1.5 3c.8 0 1.5.7 1.5 1.5s.7 1.5 1.5 1.5 1.5.7 1.5 1.5c0 1 1 1.5 3 1.5s3 .5 3 1.5 1 1.5 3 1.5 3 .5 3 1.5c0 1.2 1.7 1.5 9 1.5s9-.3 9-1.5c0-1 1-1.5 3-1.5s3-.5 3-1.5 1-1.5 3-1.5 3-.5 3-1.5c0-.8.7-1.5 1.5-1.5s1.5-.7 1.5-1.5.7-1.5 1.5-1.5c1 0 1.5-1 1.5-3s.5-3 1.5-3 1.5-1 1.5-3 .5-3 1.5-3c1.2 0 1.5-1.5 1.5-7.4 0-5.3-.4-7.9-1.5-9-.8-.8-1.5-2.8-1.5-4.5 0-2.1-.5-3.1-1.5-3.1S62 20 62 18s-.5-3-1.5-3c-.8 0-1.5-.7-1.5-1.5s-.6-1.5-1.4-1.5-1.6-.7-2-1.5c-.3-.8-1.7-1.5-3.1-1.5-1.6 0-2.5-.6-2.5-1.5 0-1-1-1.5-3-1.5s-3-.5-3-1.5C44 3.3 42.3 3 35 3s-9 .3-9 1.5zm3 26.9c0 8.2.3 10.8 1.6 12 2 2.1 7.4 2.1 7.4.1 0-.8.7-1.5 1.5-1.5 1.2 0 1.5-1.8 1.5-10.5V21h9v12.5C50 41 49.6 46 49 46c-.5 0-1.2 1.1-1.6 2.4-.3 1.5-1.5 2.7-3 3-1.3.4-2.4 1.1-2.4 1.6 0 1.7-13.6 1.2-15.4-.5-.8-.8-1.9-1.5-2.5-1.5s-1.1-.5-1.1-1.1-.7-1.7-1.5-2.5c-1.2-1.2-1.5-4.3-1.5-14V21h9v10.4z" />
-              </svg>
-              Logo
-            </span>
+            <div className="h-auto w-full rounded-lg bg-gray-200 p-2 text-xs text-gray-700">
+              <div className="flex flex-row gap-2">
+                <button onClick={() => setIsOpen(!isOpen)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-7 w-7"
+                    viewBox="0 0 70 70"
+                    fill="black"
+                  >
+                    <path d="M26 4.5c0 1-1 1.5-3 1.5s-3 .5-3 1.5S19 9 17 9s-3 .5-3 1.5c0 .8-.7 1.5-1.5 1.5s-1.5.7-1.5 1.5-.7 1.5-1.5 1.5c-1 0-1.5 1-1.5 3s-.5 3-1.5 3S5 22 5 24s-.5 3-1.5 3C2.3 27 2 28.5 2 34.5S2.3 42 3.5 42C4.6 42 5 43.2 5 46.5S5.4 51 6.5 51c1 0 1.5 1 1.5 3s.5 3 1.5 3c.8 0 1.5.7 1.5 1.5s.7 1.5 1.5 1.5 1.5.7 1.5 1.5c0 1 1 1.5 3 1.5s3 .5 3 1.5 1 1.5 3 1.5 3 .5 3 1.5c0 1.2 1.7 1.5 9 1.5s9-.3 9-1.5c0-1 1-1.5 3-1.5s3-.5 3-1.5 1-1.5 3-1.5 3-.5 3-1.5c0-.8.7-1.5 1.5-1.5s1.5-.7 1.5-1.5.7-1.5 1.5-1.5c1 0 1.5-1 1.5-3s.5-3 1.5-3 1.5-1 1.5-3 .5-3 1.5-3c1.2 0 1.5-1.5 1.5-7.4 0-5.3-.4-7.9-1.5-9-.8-.8-1.5-2.8-1.5-4.5 0-2.1-.5-3.1-1.5-3.1S62 20 62 18s-.5-3-1.5-3c-.8 0-1.5-.7-1.5-1.5s-.6-1.5-1.4-1.5-1.6-.7-2-1.5c-.3-.8-1.7-1.5-3.1-1.5-1.6 0-2.5-.6-2.5-1.5 0-1-1-1.5-3-1.5s-3-.5-3-1.5C44 3.3 42.3 3 35 3s-9 .3-9 1.5zm3 26.9c0 8.2.3 10.8 1.6 12 2 2.1 7.4 2.1 7.4.1 0-.8.7-1.5 1.5-1.5 1.2 0 1.5-1.8 1.5-10.5V21h9v12.5C50 41 49.6 46 49 46c-.5 0-1.2 1.1-1.6 2.4-.3 1.5-1.5 2.7-3 3-1.3.4-2.4 1.1-2.4 1.6 0 1.7-13.6 1.2-15.4-.5-.8-.8-1.9-1.5-2.5-1.5s-1.1-.5-1.1-1.1-.7-1.7-1.5-2.5c-1.2-1.2-1.5-4.3-1.5-14V21h9v10.4z" />
+                  </svg>
+                </button>
+                <div>
+                  <strong>Unomena</strong>
+                  <p className="italic">Unomena (Pty) Ltd.</p>
+                </div>
+              </div>
+
+
+              {/* If you have time convert to compoenent */}
+              {/* <div className="hidden flex flex-row gap-2">
+                <button onClick={() => setIsOpen(!isOpen)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-7 w-7"
+                    viewBox="0 0 70 70"
+                    fill="black"
+                  >
+                    <path d="M26 4.5c0 1-1 1.5-3 1.5s-3 .5-3 1.5S19 9 17 9s-3 .5-3 1.5c0 .8-.7 1.5-1.5 1.5s-1.5.7-1.5 1.5-.7 1.5-1.5 1.5c-1 0-1.5 1-1.5 3s-.5 3-1.5 3S5 22 5 24s-.5 3-1.5 3C2.3 27 2 28.5 2 34.5S2.3 42 3.5 42C4.6 42 5 43.2 5 46.5S5.4 51 6.5 51c1 0 1.5 1 1.5 3s.5 3 1.5 3c.8 0 1.5.7 1.5 1.5s.7 1.5 1.5 1.5 1.5.7 1.5 1.5c0 1 1 1.5 3 1.5s3 .5 3 1.5 1 1.5 3 1.5 3 .5 3 1.5c0 1.2 1.7 1.5 9 1.5s9-.3 9-1.5c0-1 1-1.5 3-1.5s3-.5 3-1.5 1-1.5 3-1.5 3-.5 3-1.5c0-.8.7-1.5 1.5-1.5s1.5-.7 1.5-1.5.7-1.5 1.5-1.5c1 0 1.5-1 1.5-3s.5-3 1.5-3 1.5-1 1.5-3 .5-3 1.5-3c1.2 0 1.5-1.5 1.5-7.4 0-5.3-.4-7.9-1.5-9-.8-.8-1.5-2.8-1.5-4.5 0-2.1-.5-3.1-1.5-3.1S62 20 62 18s-.5-3-1.5-3c-.8 0-1.5-.7-1.5-1.5s-.6-1.5-1.4-1.5-1.6-.7-2-1.5c-.3-.8-1.7-1.5-3.1-1.5-1.6 0-2.5-.6-2.5-1.5 0-1-1-1.5-3-1.5s-3-.5-3-1.5C44 3.3 42.3 3 35 3s-9 .3-9 1.5zm3 26.9c0 8.2.3 10.8 1.6 12 2 2.1 7.4 2.1 7.4.1 0-.8.7-1.5 1.5-1.5 1.2 0 1.5-1.8 1.5-10.5V21h9v12.5C50 41 49.6 46 49 46c-.5 0-1.2 1.1-1.6 2.4-.3 1.5-1.5 2.7-3 3-1.3.4-2.4 1.1-2.4 1.6 0 1.7-13.6 1.2-15.4-.5-.8-.8-1.9-1.5-2.5-1.5s-1.1-.5-1.1-1.1-.7-1.7-1.5-2.5c-1.2-1.2-1.5-4.3-1.5-14V21h9v10.4z" />
+                  </svg>
+                </button>
+                <div>
+                  <strong>Unomena</strong>
+                  <p className="italic">Unomena (Pty) Ltd.</p>
+                </div>
+              </div> */}
+            </div>
 
             <ul className="mt-6 space-y-1">
               {sidebarLinks.map((sidebarList) => (
@@ -166,7 +192,7 @@ const SideNav: FC<SideNavProps> = ({}) => {
                 <li key={customLink.url}>
                   <Link
                     href={customLink.url}
-                    className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-gray-700"
+                    className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-gray-700 hover:bg-blue-50"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -194,14 +220,11 @@ const SideNav: FC<SideNavProps> = ({}) => {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a
-                  href=""
-                  className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
-                >
-                  account settings
-                </a>
-              </li>
+              <MenuListDropdown
+                title={settingsLinks[0]?.title || ''}
+                svgPath="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                links={settingsLinks}
+              />
             </ul>
           </div>
         </div>
@@ -287,7 +310,7 @@ const SideNav: FC<SideNavProps> = ({}) => {
                     </svg>
 
                     {openSettings && (
-                      <div className="absolute start-full ms-6 rounded bg-white px-2 py-1.5 text-sm font-medium text-black">
+                      <div className="absolute start-full ms-6 rounded bg-white px-2 py-1.5 text-sm font-medium text-black sm:w-64">
                         <ul className="flex flex-col space-y-2">
                           <li>
                             <span className="block border-b pb-1 font-bold text-black">
